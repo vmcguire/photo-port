@@ -10,6 +10,14 @@ function ContactForm() {
   const { name, email, message } = formState;
   const [errorMessage, setErrorMessage] = useState("");
 
+  function handleSubmit(e) {
+    e.preventDefault();
+    if (!errorMessage) {
+      setFormState({ [e.target.name]: e.target.value });
+      console.log(formState);
+    }
+  }
+
   function handleChange(e) {
     if (e.target.name === "email") {
       const isValid = validateEmail(e.target.value);
@@ -28,13 +36,6 @@ function ContactForm() {
     }
   }
 
-  function handleSubmit(e) {
-    e.preventDefault();
-    if (!errorMessage) {
-      setFormState({ ...formState, [e.target.name]: e.target.value });
-    }
-    console.log(formState);
-  }
   return (
     <section>
       <h1 data-testid="h1tag">Contact me</h1>

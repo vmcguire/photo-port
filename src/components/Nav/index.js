@@ -9,6 +9,7 @@ function Nav(props) {
     contactSelected,
     setContactSelected,
   } = props;
+
   const handleClick = (item) => {
     console.log(item);
     return item;
